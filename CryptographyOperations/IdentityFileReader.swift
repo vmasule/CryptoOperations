@@ -72,6 +72,15 @@ class IdentityFileReader {
         
         getIdentityFromKeychainUsingPersistenceRef(cfDataRef)
         
+        
+        //MARK: Get certificate from keychain
+        let secCertRef = findCertificateInKeyChain()
+        
+        
+        //MARK: Get policy and evaluate trust
+        
+        getPolicyObjectAndEvaluateTrust(secCertRef)
+        
         return osStatus
     }
     
@@ -89,7 +98,9 @@ class IdentityFileReader {
             return osStatus
             
         }else {
+            
             print("Certificate successfully retrived!!")
+            
         }
         
         //Get certificate summary
@@ -100,6 +111,7 @@ class IdentityFileReader {
         
         return osStatus
     }
+    
 
     func getPrivateKey(secIdentity: SecIdentityRef) -> OSStatus {
     
@@ -178,6 +190,66 @@ class IdentityFileReader {
         }
         
         return persistenceRef as! SecIdentityRef
+    
+    }
+    
+    func findCertificateInKeyChain()-> SecCertificateRef  {
+        
+        var persistenceRef = AnyObject?()
+        
+        let certLabel = CFStringCreateWithCString(nil, "AuthServer", kCFStringEncodingASCII)
+        
+        var keys = [unsafeAddressOf(kSecClass as NSString), unsafeAddressOf(kSecAttrLabel as NSString), unsafeAddressOf(kSecReturnRef as NSString)]
+        var values = [unsafeAddressOf(kSecClassCertificate), unsafeAddressOf(certLabel), unsafeAddressOf(kCFBooleanTrue)]
+        
+        let optionDictionary: CFDictionaryRef = CFDictionaryCreate(nil, &keys, &values, 3, nil, nil);
+        
+        
+        let osStatus = SecItemCopyMatching(optionDictionary, &persistenceRef)
+        
+        if osStatus != 0 {
+            
+            print("No certificate in keychain")
+            
+        } else {
+            
+            print("Certificate is retrieved successfully from Keychain")
+            
+        }
+        
+        return persistenceRef as! SecCertificateRef
+    }
+    
+    func getPolicyObjectAndEvaluateTrust(secCert: SecCertificateRef) {
+    
+        var secTrustRef = SecTrustRef?()
+        var secTrustResult = SecTrustResultType()
+        
+        let secPolicyRef = SecPolicyCreateBasicX509()
+        
+        var osStatus = SecTrustCreateWithCertificates(secCert, secPolicyRef, &secTrustRef)
+    
+        if osStatus == 0 {
+        
+            print("Trust is created successfully")
+            
+            osStatus = SecTrustEvaluate(secTrustRef!, &secTrustResult)
+            
+            //kSecTrustResultProceed
+            if (Int(secTrustResult) == kSecTrustResultRecoverableTrustFailure) {
+            
+                print("Certificate is not trusted")
+                
+            }else{
+            
+                print("Certificate is evaluated successfully")
+            }
+            
+            
+        }else {
+        
+            print("Trust is not created!!")
+        }
     
     }
     
