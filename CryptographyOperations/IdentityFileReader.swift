@@ -130,6 +130,17 @@ class IdentityFileReader {
         
         let optionDictionary: CFDictionaryRef = CFDictionaryCreate(nil, &keys, &values, 2, nil, nil);
         
+        let delResult = SecItemDelete(optionDictionary)
+        
+        if delResult == errSecSuccess {
+            
+            print("Identity already exist into keychain and it is removed")
+            
+        } else {
+            
+            NSLog("Identity does not exist into keychain")
+        }
+        
         let osStatus = SecItemAdd(optionDictionary, &persistenceRef)
         
         if osStatus != 0 {
