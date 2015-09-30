@@ -117,6 +117,7 @@ class IdentityFileReader {
             NSLog("Certificate is not retrieved ", osStatus)
         }
         
+        
         return osStatus
     }
     
