@@ -12,6 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let identityReader = IdentityFileReader()
+        identityReader.readePKCS12File()
+        
+        
+        //let createKeyPair = CreateKeyPair()
+        //createKeyPair.generateKeyPair()
+        //createKeyPair.findKey(tag:"myPublicKey")
+        //createKeyPair.findKey(tag:"myPrivateKey")
         // Do any additional setup after loading the view, typically from a nib.
     }
 

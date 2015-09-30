@@ -13,6 +13,9 @@
 		E6473AD81B99B39C00A945DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6473AD71B99B39C00A945DD /* Images.xcassets */; };
 		E6473ADB1B99B39C00A945DD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6473AD91B99B39C00A945DD /* LaunchScreen.xib */; };
 		E6473AE71B99B39C00A945DD /* CryptographyOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6473AE61B99B39C00A945DD /* CryptographyOperationsTests.swift */; };
+		E6473AF11B99B44D00A945DD /* CreateKeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6473AF01B99B44D00A945DD /* CreateKeyPair.swift */; };
+		E65389891BBAA47D002ACE6C /* IdentityFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65389881BBAA47D002ACE6C /* IdentityFileReader.swift */; settings = {ASSET_TAGS = (); }; };
+		E653898B1BBABA7A002ACE6C /* AuthServer.p12 in Resources */ = {isa = PBXBuildFile; fileRef = E653898A1BBAA7FC002ACE6C /* AuthServer.p12 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		E6473AE01B99B39C00A945DD /* CryptographyOperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptographyOperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6473AE51B99B39C00A945DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6473AE61B99B39C00A945DD /* CryptographyOperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptographyOperationsTests.swift; sourceTree = "<group>"; };
+		E6473AF01B99B44D00A945DD /* CreateKeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKeyPair.swift; sourceTree = "<group>"; };
+		E65389881BBAA47D002ACE6C /* IdentityFileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityFileReader.swift; sourceTree = "<group>"; };
+		E653898A1BBAA7FC002ACE6C /* AuthServer.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = AuthServer.p12; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 				E6473AD71B99B39C00A945DD /* Images.xcassets */,
 				E6473AD91B99B39C00A945DD /* LaunchScreen.xib */,
 				E6473ACE1B99B39C00A945DD /* Supporting Files */,
+				E6473AF01B99B44D00A945DD /* CreateKeyPair.swift */,
+				E65389881BBAA47D002ACE6C /* IdentityFileReader.swift */,
 			);
 			path = CryptographyOperations;
 			sourceTree = "<group>";
@@ -90,6 +98,7 @@
 		E6473ACE1B99B39C00A945DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E653898A1BBAA7FC002ACE6C /* AuthServer.p12 */,
 				E6473ACF1B99B39C00A945DD /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -156,6 +165,8 @@
 		E6473AC31B99B39C00A945DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = NGO;
 				TargetAttributes = {
@@ -192,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E653898B1BBABA7A002ACE6C /* AuthServer.p12 in Resources */,
 				E6473AD61B99B39C00A945DD /* Main.storyboard in Resources */,
 				E6473ADB1B99B39C00A945DD /* LaunchScreen.xib in Resources */,
 				E6473AD81B99B39C00A945DD /* Images.xcassets in Resources */,
@@ -212,6 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65389891BBAA47D002ACE6C /* IdentityFileReader.swift in Sources */,
+				E6473AF11B99B44D00A945DD /* CreateKeyPair.swift in Sources */,
 				E6473AD31B99B39C00A945DD /* ViewController.swift in Sources */,
 				E6473AD11B99B39C00A945DD /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +425,7 @@
 				E6473AEC1B99B39C00A945DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E6473AED1B99B39C00A945DD /* Build configuration list for PBXNativeTarget "CryptographyOperationsTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +434,7 @@
 				E6473AEF1B99B39C00A945DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
