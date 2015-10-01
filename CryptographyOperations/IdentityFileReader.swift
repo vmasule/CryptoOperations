@@ -228,14 +228,18 @@ class IdentityFileReader {
         return persistenceRef as! SecCertificateRef
     }
     
-    func getPolicyObjectAndEvaluateTrust(secCert: SecCertificateRef) {
+    func getPolicyObjectAndEvaluateTrust( secCert: SecCertificateRef) {
     
         var secTrustRef = SecTrustRef?()
         var secTrustResult = SecTrustResultType()
         
-        let secPolicyRef = SecPolicyCreateBasicX509()
+        let secPolicy = SecPolicyCreateBasicX509()
         
-        var osStatus = SecTrustCreateWithCertificates(secCert, secPolicyRef, &secTrustRef)
+        var values = [unsafeAddressOf(secCert)]
+        
+        let cfArray: CFArrayRef = CFArrayCreate(nil, &values, 1, nil)
+        
+        var osStatus = SecTrustCreateWithCertificates(cfArray, secPolicy, &secTrustRef)
     
         if osStatus == 0 {
         

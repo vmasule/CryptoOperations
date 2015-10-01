@@ -5,11 +5,11 @@ public class CreateKeyPair
 {
     
     var publicKey : SecKey?
+    
     var privateKey : SecKey?
-    //var kSecAttrKeyTypeRSA: CFStringRef?
+    
     var  osStatus:OSStatus?
     let parameters1: [String: AnyObject]
-   //public let query: [String: AnyObject]
     
     init(){
         
@@ -54,7 +54,7 @@ public class CreateKeyPair
             
         }else
         {
-            print("Fail")
+            print("Error while generating keys")
         }
     }
     
@@ -69,9 +69,9 @@ public class CreateKeyPair
         
         var keyPtr: AnyObject?
         let result = SecItemCopyMatching(query, &keyPtr)
-        //let seckey:SceKey = nil
         
         switch result {
+            
         case noErr:
             let key = keyPtr! as! SecKey
             print("Key is \(key)")
@@ -83,11 +83,26 @@ public class CreateKeyPair
             print("Error occurred: \(result)")
             return nil
         }
-        
-        //return nil
     }
     
-    func encript()
-    {}
+//    func encryptDataWithPublicKey() {
+//    
+//        if let symmetricKey = symmetricKeyRef {
+//            // Calculate the buffer sizes.
+//            let contentPointer      = UnsafePointer<UInt8>(symmetricKey.bytes)
+//            let contentSize         = symmetricKey.length
+//            
+//        let textToEncrypt = "MAFIA"
+//        let textData = [UInt8](textToEncrypt.utf8)
+//        let textSize = UInt(textToEncrypt.characters.count)
+//        
+//        
+//        var encryptedData = [UInt8](count: Int(textSize), repeatedValue: 0)
+//        var encryptedDataLength = textSize
+//        
+//
+//        SecKeyEncrypt(publicKey!, SecPadding.PKCS1SHA1, textToEncrypt, textSize, encryptedData, encryptedDataLength)
+//    }
 
+    
 }
