@@ -17,16 +17,24 @@ class IdentityFileReader {
     func readePKCS12File()-> OSStatus {
     
         var osStatus = errSecAllocate
+        var pkcs12Data: NSData?
         
         let path = NSBundle.mainBundle().pathForResource("AuthServer", ofType: ".p12")
-        let pkcs12Data = NSData.dataWithContentsOfMappedFile(path!)
+        
+        do {
+            pkcs12Data = try NSData(contentsOfFile: path!, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+        } catch {
+            
+        }
+        
+        let any: AnyObject = pkcs12Data as! AnyObject
         
         var keyRef: CFArray?
         
         let optionDictionary: NSMutableDictionary = NSMutableDictionary()
         optionDictionary.setValue("password", forKey: kSecImportExportPassphrase as String)
         
-        osStatus = SecPKCS12Import(pkcs12Data as! CFDataRef, optionDictionary, &keyRef)
+        osStatus = SecPKCS12Import(any as! CFDataRef, optionDictionary, &keyRef)
         
         if osStatus != 0 {
         

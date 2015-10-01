@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		594548D11BBD273A002D50AA /* AuthServer.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 594548D01BBD273A002D50AA /* AuthServer.p12 */; settings = {ASSET_TAGS = (); }; };
 		E6473AD11B99B39C00A945DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6473AD01B99B39C00A945DD /* AppDelegate.swift */; };
 		E6473AD31B99B39C00A945DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6473AD21B99B39C00A945DD /* ViewController.swift */; };
 		E6473AD61B99B39C00A945DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6473AD41B99B39C00A945DD /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		594548D01BBD273A002D50AA /* AuthServer.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = AuthServer.p12; sourceTree = "<group>"; };
 		E6473ACB1B99B39C00A945DD /* CryptographyOperations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptographyOperations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6473ACF1B99B39C00A945DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6473AD01B99B39C00A945DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		E6473ACE1B99B39C00A945DD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				594548D01BBD273A002D50AA /* AuthServer.p12 */,
 				E653898A1BBAA7FC002ACE6C /* AuthServer.p12 */,
 				E6473ACF1B99B39C00A945DD /* Info.plist */,
 			);
@@ -205,6 +208,7 @@
 			files = (
 				E653898B1BBABA7A002ACE6C /* AuthServer.p12 in Resources */,
 				E6473AD61B99B39C00A945DD /* Main.storyboard in Resources */,
+				594548D11BBD273A002D50AA /* AuthServer.p12 in Resources */,
 				E6473ADB1B99B39C00A945DD /* LaunchScreen.xib in Resources */,
 				E6473AD81B99B39C00A945DD /* Images.xcassets in Resources */,
 			);
